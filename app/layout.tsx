@@ -1,5 +1,6 @@
 import { Metadata } from "next"
 import { Navbar } from "../components/Navbar"
+import { Roboto } from 'next/font/google'
 
 
 export const metadata: Metadata = {
@@ -7,6 +8,12 @@ export const metadata: Metadata = {
   description: 'My description project',
   keywords:['next','react']
 }
+
+const roboto = Roboto({
+  weight: ['300', '400'],
+  style: ['italic', 'normal'],
+  subsets: ['latin']
+})
 
 
 export default function RootLayout({
@@ -16,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={roboto.className}>
         <Navbar />
         {children}
       </body>
